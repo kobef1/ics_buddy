@@ -1,0 +1,85 @@
+#nav {
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.3);
+    /* height: 70px; */
+    width: auto;
+    border-image: linear-gradient(90deg, #e6007e, #ffcc01, #10c96d, #00B5E2) 1;
+    border-bottom: 3px solid;
+    color: black;
+    z-index: 1;
+
+}
+
+#end {
+    justify-content: end;
+}
+
+#logo {
+    color: #3a4e84;
+    justify-content: start;
+}
+
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: #0087ca;
+}
+
+.hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    /* background: linear-gradient(90deg ,#e6007e, #ffcc01, #10c96d, #0082c7); */
+    background: black;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+
+}
+
+.hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/*Calculate*/
+.hover-underline-animation2 {
+    display: inline-block;
+    position: relative;
+    color: #0087ca;
+
+}
+
+.hover-underline-animation2::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 3.5px;
+    bottom: 0;
+    margin-bottom: -3px;
+    left: 0;
+    border-radius: 500px;
+    background: linear-gradient(90deg, #e6007e, #ffcc01, #10c96d, #00B5E2);
+    /* background: #1d1f8c; */
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+
+}
+
+.hover-underline-animation2:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+
+}
+
+button.navbar-toggler.collapsed {
+    background-color: white;
+
+}
+
+button.navbar-toggler {
+    background-color: white;
+}

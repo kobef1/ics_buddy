@@ -1,0 +1,10 @@
+#card {
+    width: 100%;
+    border: 2px solid silver;
+    height: 80vh;
+    border-radius: 30px;
+    padding: 10px;
+    align-items: center;
+    
+}
+
