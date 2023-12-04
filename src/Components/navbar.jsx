@@ -2,7 +2,6 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Dropdown from 'react-bootstrap/Dropdown';
-import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './nav_bar.css';
 import { LogoutOutlined, UserOutlined, BugOutlined, AimOutlined, CalculatorOutlined, SearchOutlined,SelectOutlined, LineOutlined  } from '@ant-design/icons';
@@ -92,7 +91,7 @@ function Nav_bar({ myUser }) {
                   <div
                     class="hover-underline-animation"
                     style={{
-                      color: "black",
+                      color: "#3a4e84",
                       textDecoration: "none",
                       fontSize: "1rem",
                     }}
@@ -114,7 +113,7 @@ function Nav_bar({ myUser }) {
                   <div
                     class="hover-underline-animation "
                     style={{
-                      color: "black",
+                      color: "#3a4e84",
                       textDecoration: "none",
                       fontSize: "1rem",
                     }}
@@ -136,7 +135,7 @@ function Nav_bar({ myUser }) {
                   <div
                     class="hover-underline-animation "
                     style={{
-                      color: "black",
+                      color: "#3a4e84",
                       textDecoration: "none",
                       fontSize: "1rem",
                     }}
@@ -158,7 +157,7 @@ function Nav_bar({ myUser }) {
                   <div
                     class="hover-underline-animation "
                     style={{
-                      color: "black",
+                      color: "#3a4e84",
                       textDecoration: "none",
                       fontSize: "1rem",
                     }}
@@ -180,7 +179,7 @@ function Nav_bar({ myUser }) {
                   <div
                     class="hover-underline-animation "
                     style={{
-                      color: "black",
+                      color: "#3a4e84",
                       textDecoration: "none",
                       fontSize: "1rem",
                     }}
@@ -202,7 +201,7 @@ function Nav_bar({ myUser }) {
                   <div
                     class="hover-underline-animation "
                     style={{
-                      color: "black",
+                      color: "#3a4e84",
                       textDecoration: "none",
                       fontSize: "1rem",
                     }}
@@ -224,7 +223,7 @@ function Nav_bar({ myUser }) {
                   <div
                     class="hover-underline-animation "
                     style={{
-                      color: "black",
+                      color: "#3a4e84",
                       textDecoration: "none",
                       fontSize: "1rem",
                     }}
