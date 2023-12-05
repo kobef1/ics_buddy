@@ -1,14 +1,11 @@
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Dropdown from 'react-bootstrap/Dropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './nav_bar.css';
-import { LogoutOutlined, UserOutlined, BugOutlined, AimOutlined, CalculatorOutlined, SearchOutlined,SelectOutlined, LineOutlined  } from '@ant-design/icons';
 import logo from './Logo.png';
 import React, { useState } from 'react';
 // import { NavLink } from 'react-router-dom';
-import { Form, Button, Input, Modal, Select, Divider, message } from 'antd';
+import {message } from 'antd';
 
 
 const user = ["Kobe", "Jayson", "Kat", "Paul", "Eugene", "Herb", "Jerico"];
