@@ -31,92 +31,92 @@ h1, h2, h3{
     box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset 0 -1px 9px;
 }
 
-.led-red {
+.led-orange {
     margin: 0 auto;
     width: 35px;
     height: 35px;
-    background-color: #F00;
+    background-color: #ff6700;
     border-radius: 50%;
-    box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 12px;
-    -webkit-animation: blinkRed 0.8s infinite;
-    -moz-animation: blinkRed 0.8s infinite;
-    -ms-animation: blinkRed 0.8s infinite;
-    -o-animation: blinkRed 0.8s infinite;
-    animation: blinkRed 0.8s infinite;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #682402 0 -1px 9px, #f35506 0 2px 12px;
+    -webkit-animation: blinkOrange 0.8s infinite;
+    -moz-animation: blinkOrange 0.8s infinite;
+    -ms-animation: blinkOrange 0.8s infinite;
+    -o-animation: blinkOrange 0.8s infinite;
+    animation: blinkOrange 0.8s infinite;
 }
 
-@-webkit-keyframes blinkRed {
+@-webkit-keyframes blinkOrange {
     from {
-        background-color: #F00;
+        background-color: #ff6700;
     }
 
     50% {
-        background-color: #A00;
-        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;
+        background-color: #682c03;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #682402 0 -1px 9px, #f35506 0 2px 0;
     }
 
     to {
-        background-color: #F00;
+        background-color: #ff6700;
     }
 }
 
-@-moz-keyframes blinkRed {
+@-moz-keyframes blinkOrange {
     from {
-        background-color: #F00;
+        background-color: #ff6700;
     }
 
     50% {
-        background-color: #A00;
-        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;
+        background-color: #682c03;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #682402 0 -1px 9px, #f35506 0 2px 0;
     }
 
     to {
-        background-color: #F00;
+        background-color: #ff6700;
     }
 }
 
-@-ms-keyframes blinkRed {
+@-ms-keyframes blinkOrange {
     from {
-        background-color: #F00;
+        background-color: #ff6700;
     }
 
     50% {
-        background-color: #A00;
-        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;
+        background-color: #682c03;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #682402 0 -1px 9px, #f35506 0 2px 0;
     }
 
     to {
-        background-color: #F00;
+        background-color: #ff6700;
     }
 }
 
-@-o-keyframes blinkRed {
+@-o-keyframes blinkOrange {
     from {
-        background-color: #F00;
+        background-color: #ff6700;
     }
 
     50% {
-        background-color: #A00;
-        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;
+        background-color: #682c03;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #682402 0 -1px 9px, #f35506 0 2px 0;
     }
 
     to {
-        background-color: #F00;
+        background-color: #ff6700;
     }
 }
 
-@keyframes blinkRed {
+@keyframes blinkOrange {
     from {
-        background-color: #F00;
+        background-color: #ff6700;
     }
 
     50% {
-        background-color: #A00;
-        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;
+        background-color: #682c03;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #682402 0 -1px 9px, #f35506 0 2px 0;
     }
 
     to {
-        background-color: #F00;
+        background-color: #ff6700;
     }
 }
 
