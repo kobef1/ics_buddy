@@ -7,7 +7,7 @@ import { Divider, Row, Col, Card, Typography} from "antd";
 
 function ICS({ myData }) {
   const {il1a, il1b , il2a, il2b, il3a, il3b, il4a, il4b, expnA, expnB, esA, esB, safetyA, safetyB,
-    sysOverride, systemArmed, mismatch, keySwitchA } = myData
+    sysOverride, systemArmed, mismatch, keySwitchA, enableLED, s1Open, s2Open, s3Open } = myData
   console.log(`AAAAAAAAAAAAAAAAA IL1A =`, il1a, typeof (il1a));
   
   return (
@@ -54,16 +54,17 @@ function ICS({ myData }) {
                   <img
                     class="click"
                     src={
-                      systemArmed === "0"
+                      enableLED === "0"
                         ? require("./images/pushbutton-on2.png")
                         : require("./images/pushbutton-off.png")
                     }
                     width={100}
                     height={100}
+                    style={{marginLeft:'-8px'}}
                   />
                 </Col>
                 <Col span={14}>
-                  <h4>LASER IS {il1a === "0" ? "ARMED" : "UNARMED"}</h4>
+                  <h4>LASER IS {enableLED === "0" ? "ARMED" : "UNARMED"}</h4>
                 </Col>
               </Row>
               <Divider>
@@ -103,10 +104,10 @@ function ICS({ myData }) {
               <Row>
                 <Col span={1} offset={4}></Col>
                 <Col span={3} offset={5}>
-                  <Typography.Title>A</Typography.Title>
+                  <Typography.Title style={{marginLeft:'5px'}}>A</Typography.Title>
                 </Col>
                 <Col span={5} push={5}>
-                  <Typography.Title>B</Typography.Title>
+                  <Typography.Title style={{marginLeft:'5px'}}>B</Typography.Title>
                 </Col>
               </Row>
               <Row>
@@ -115,12 +116,12 @@ function ICS({ myData }) {
                 </Col>
                 <Col span={4} push={4}>
                   <div class="led-box">
-                    <div class={il1a === "1" ? "led-green" : "led-red"}></div>
+                    <div class={il1a === "1" ? "led-green" : "led-orange"}></div>
                   </div>
                 </Col>
                 <Col span={4} push={8}>
                   <div class="led-box">
-                    <div class={il1b === "1" ? "led-green" : "led-red"}></div>
+                    <div class={il1b === "1" ? "led-green" : "led-orange"}></div>
                   </div>
                 </Col>
               </Row>
@@ -130,12 +131,12 @@ function ICS({ myData }) {
                 </Col>
                 <Col span={4} push={4}>
                   <div class="led-box">
-                    <div class={il2a === "1" ? "led-green" : "led-red"}></div>
+                    <div class={il2a === "1" ? "led-green" : "led-orange"}></div>
                   </div>
                 </Col>
                 <Col span={4} push={8}>
                   <div class="led-box">
-                    <div class={il2b === "1" ? "led-green" : "led-red"}></div>
+                    <div class={il2b === "1" ? "led-green" : "led-orange"}></div>
                   </div>
                 </Col>
               </Row>
@@ -145,12 +146,12 @@ function ICS({ myData }) {
                 </Col>
                 <Col span={4} push={4}>
                   <div class="led-box">
-                    <div class={il3a === "1" ? "led-green" : "led-red"}></div>
+                    <div class={il3a === "1" ? "led-green" : "led-orange"}></div>
                   </div>
                 </Col>
                 <Col span={4} push={8}>
                   <div class="led-box">
-                    <div class={il3b === "1" ? "led-green" : "led-red"}></div>
+                    <div class={il3b === "1" ? "led-green" : "led-orange"}></div>
                   </div>
                 </Col>
               </Row>
@@ -160,49 +161,67 @@ function ICS({ myData }) {
                 </Col>
                 <Col span={4} push={4}>
                   <div class="led-box">
-                    <div class={il4a === "1" ? "led-green" : "led-red"}></div>
+                    <div class={il4a === "1" ? "led-green" : "led-orange"}></div>
                   </div>
                 </Col>
                 <Col span={4} push={8}>
                   <div class="led-box">
-                    <div class={il4b === "1" ? "led-green" : "led-red"}></div>
+                    <div class={il4b === "1" ? "led-green" : "led-orange"}></div>
                   </div>
                 </Col>
               </Row>
               <Row>
                 <Col span={7} push={1}>
-                  <Typography.Title>
-                    <h2>EXPANSION</h2>
+                  <Typography.Title style={{ marginTop: "12px" }}>
+                    <h3>EXPANSION</h3>
                   </Typography.Title>
                 </Col>
                 <Col span={4} push={3}>
                   <div class="led-box">
-                    <div class={expnA === "1" ? "led-green" : "led-red"}></div>
+                    <div class={expnA === "1" ? "led-green" : "led-orange"}></div>
                   </div>
                 </Col>
                 <Col span={4} push={7}>
                   <div class="led-box">
-                    <div class={expnB === "1" ? "led-green" : "led-red"}></div>
+                    <div class={expnB === "1" ? "led-green" : "led-orange"}></div>
                   </div>
                 </Col>
               </Row>
 
               <Row>
                 <Col span={7} push={1}>
-                  <Typography.Title>
-                    <h2>CURTAIN OPEN</h2>
+                  <Typography.Title style={{ marginTop: "12px" }}>
+                    <h3>CURTAIN OPEN</h3>
                   </Typography.Title>
                 </Col>
                 <Col span={4} push={3}>
                   <div class="led-box">
-                    <div class={expnB === "1" ? "led-green" : "led-red"}></div>
+                    <div class={s2Open === "1" ? "led-green" : "led-off"}></div>
                   </div>
                 </Col>
               </Row>
+              <Divider style={{ margin: "5px 0px 25px 0px" }} />
               <Row justify={"center"}>
-                <div style={{ border: '2px solid', borderRadius: '10px', width: '300px', height: '80px' }}>
-                  <h2 style={{alignItems:'middle'}}>ALIGNMENT MODE</h2>
-              </div>
+                <div
+                  style={{
+                    border: "2px solid",
+                    borderRadius: "10px",
+                    width: "300px",
+                    height: "80px",
+                    display: "grid",
+                    marginTop: "-10px",
+                  }}
+                >
+                  <h2
+                    style={{
+                      display: "grid",
+                      textAlign: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    {s3Open === "1" ? "NORMAL" : "ALIGNMENT"} MODE
+                  </h2>
+                </div>
               </Row>
             </Card>
           </Col>
@@ -223,10 +242,10 @@ function ICS({ myData }) {
               <Row>
                 <Col span={8} push={1}></Col>
                 <Col span={3} push={5}>
-                  <Typography.Title>A</Typography.Title>
+                  <Typography.Title style={{marginLeft:'4px'}}>A</Typography.Title>
                 </Col>
                 <Col span={5} push={7}>
-                  <Typography.Title>B</Typography.Title>
+                  <Typography.Title style={{marginLeft:'5px'}}>B</Typography.Title>
                 </Col>
               </Row>
               <Row>
@@ -237,12 +256,12 @@ function ICS({ myData }) {
                 </Col>
                 <Col span={4} push={5}>
                   <div class="led-box">
-                    <div class={esA === "0" ? "led-green" : "led-off"}></div>
+                    <div class={esA === "0" ? "led-orange" : "led-off"}></div>
                   </div>
                 </Col>
                 <Col span={4} push={6}>
                   <div class="led-box">
-                    <div class={esB === "0" ? "led-green" : "led-off"}></div>
+                    <div class={esB === "0" ? "led-orange" : "led-off"}></div>
                   </div>
                 </Col>
               </Row>
@@ -255,14 +274,14 @@ function ICS({ myData }) {
                 <Col span={4} push={5}>
                   <div class="led-box">
                     <div
-                      class={safetyA === "1" ? "led-green" : "led-off"}
+                      class={safetyA === "0" ? "led-green" : "led-off"}
                     ></div>
                   </div>
                 </Col>
                 <Col span={4} push={6}>
                   <div class="led-box">
                     <div
-                      class={safetyB === "1" ? "led-green" : "led-off"}
+                      class={safetyB === "0" ? "led-green" : "led-off"}
                     ></div>
                   </div>
                 </Col>
@@ -275,9 +294,7 @@ function ICS({ myData }) {
                 </Col>
                 <Col span={4} push={5}>
                   <div class="led-box">
-                    <div
-                      class={sysOverride === "0" ? "led-red" : "led-off"}
-                    ></div>
+                    <div class={s1Open === "1" ? "led-green" : "led-off"}></div>
                   </div>
                 </Col>
                 <Col span={4} push={6}></Col>
@@ -290,7 +307,9 @@ function ICS({ myData }) {
                 </Col>
                 <Col span={4} push={5}>
                   <div class="led-box">
-                    <div class={mismatch === "0" ? "led-red" : "led-off"}></div>
+                    <div
+                      class={mismatch === "0" ? "led-orange" : "led-off"}
+                    ></div>
                   </div>
                 </Col>
                 <Col span={4} push={6}></Col>
@@ -304,7 +323,7 @@ function ICS({ myData }) {
                 <Col span={4} push={3}>
                   <div class="led-box">
                     <div
-                      class={systemArmed === "0" ? "led-red" : "led-off"}
+                      class={systemArmed === "0" ? "led-orange" : "led-off"}
                     ></div>
                   </div>
                 </Col>
