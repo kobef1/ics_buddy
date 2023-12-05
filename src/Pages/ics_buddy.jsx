@@ -29,7 +29,7 @@ function ICS() {
                   <div>
                     {" "}
                     <img
-                      src={require("./images/switch-off.png")}
+                      src={require("./images/switch-on.png")}
                       width={80}
                       height={120}
                     />
@@ -52,7 +52,7 @@ function ICS() {
                   />
                 </Col>
                 <Col span={14}>
-                  <h4>LASER IS UNARMED</h4>
+                  <h4>LASER IS ARMED</h4>
                 </Col>
               </Row>
               <Divider>
@@ -115,12 +115,12 @@ function ICS() {
                 </Col>
                 <Col span={4} push={4}>
                   <div class="led-box">
-                    <div class="led-red"></div>
+                    <div class="led-off"></div>
                   </div>
                 </Col>
                 <Col span={4} push={8}>
                   <div class="led-box">
-                    <div class="led-red"></div>
+                    <div class="led-off"></div>
                   </div>
                 </Col>
               </Row>
@@ -173,11 +173,6 @@ function ICS() {
               </Row>
 
               <Divider></Divider>
-              <img
-                src={require("./images/ce.png")}
-                width={50}
-                height={50}
-              />
             </Card>
           </Col>
           <Col span={6} push={3}>
@@ -245,7 +240,7 @@ function ICS() {
                 </Col>
                 <Col span={4} push={5}>
                   <div class="led-box">
-                    <div class="led-green"></div>
+                    <div class="led-off"></div>
                   </div>
                 </Col>
                 <Col span={4} push={6}></Col>
@@ -258,7 +253,7 @@ function ICS() {
                 </Col>
                 <Col span={4} push={5}>
                   <div class="led-box">
-                    <div class="led-red"></div>
+                    <div class="led-off"></div>
                   </div>
                 </Col>
                 <Col span={4} push={6}></Col>
@@ -276,6 +271,7 @@ function ICS() {
                 </Col>
                 <Col span={4} push={6}></Col>
                 <Divider />
+                <img src={require("./images/ce.png")} width={50} height={50} />
               </Row>
             </Card>
           </Col>

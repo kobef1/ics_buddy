@@ -22,7 +22,14 @@ h1, h2, h3{
     margin: 10px 0;
     float: left;
 }
-
+.led-off {
+    margin: 0 auto;
+    width: 35px;
+    height: 35px;
+    background-color: #808080;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset 0 -1px 9px;
+}
 
 .led-red {
     margin: 0 auto;
@@ -31,11 +38,11 @@ h1, h2, h3{
     background-color: #F00;
     border-radius: 50%;
     box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 12px;
-    /* -webkit-animation: blinkRed 0.8s infinite;
+    -webkit-animation: blinkRed 0.8s infinite;
     -moz-animation: blinkRed 0.8s infinite;
     -ms-animation: blinkRed 0.8s infinite;
     -o-animation: blinkRed 0.8s infinite;
-    animation: blinkRed 0.8s infinite; */
+    animation: blinkRed 0.8s infinite;
 }
 
 @-webkit-keyframes blinkRed {
