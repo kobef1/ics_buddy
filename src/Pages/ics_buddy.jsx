@@ -1,7 +1,7 @@
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import './ics.css';
-import { Divider, Row, Col, Card, Typography} from "antd";
+import { Divider, Row, Col, Card, Typography, Space} from "antd";
 
 // import  from './switch-on.png'
 
@@ -27,45 +27,35 @@ function ICS({ myData }) {
               <Divider>
                 <h1>POWER</h1>
               </Divider>
-              <Row align={"middle"}>
-                <Col span={10} push={3}>
-                  <div>
-                    {" "}
-                    <img
-                      src={
-                        il1a === "1"
-                          ? require("./images/switch-on.png")
-                          : require("./images/switch-off.png")
-                      }
-                      width={80}
-                      height={120}
-                    />
-                  </div>
-                </Col>
-                <Col span={14}>
-                  <h4>SYSTEM IS {il1a === "1" ? "ON" : "OFF"}</h4>
-                </Col>
+              <Row align={"middle"} justify={"center"}>
+                <div>
+                  {" "}
+                  <img
+                    src={
+                      myData !== null
+                        ? require("./images/switch-on.png")
+                        : require("./images/switch-off.png")
+                    }
+                    width={80}
+                    height={120}
+                  />
+                </div>
               </Row>
               <Divider>
                 <h1>ARM LASER</h1>
               </Divider>
-              <Row align={"middle"}>
-                <Col span={10} push={3}>
-                  <img
-                    class="click"
-                    src={
-                      enableLED === "0"
-                        ? require("./images/pushbutton-on2.png")
-                        : require("./images/pushbutton-off.png")
-                    }
-                    width={100}
-                    height={100}
-                    style={{marginLeft:'-8px'}}
-                  />
-                </Col>
-                <Col span={14}>
-                  <h4>LASER IS {enableLED === "0" ? "ARMED" : "UNARMED"}</h4>
-                </Col>
+              <Row align={"middle"} justify={"center"}>
+                <img
+                  class={enableLED === "0" ? "click" : null}
+                  src={
+                    enableLED === "0"
+                      ? require("./images/pushbutton-on2.png")
+                      : require("./images/pushbutton-off.png")
+                  }
+                  width={100}
+                  height={100}
+                  style={{ marginLeft: "-8px" }}
+                />
               </Row>
               <Divider>
                 <h1>KEY SWITCH</h1>
@@ -103,25 +93,45 @@ function ICS({ myData }) {
               </Divider>
               <Row>
                 <Col span={1} offset={4}></Col>
-                <Col span={3} offset={5}>
-                  <Typography.Title style={{marginLeft:'5px'}}>A</Typography.Title>
+                <Col span={3} offset={6}>
+                  <Typography.Title style={{ marginLeft: "5px" }}>
+                    A
+                  </Typography.Title>
                 </Col>
-                <Col span={5} push={5}>
-                  <Typography.Title style={{marginLeft:'5px'}}>B</Typography.Title>
+                <Col span={5} push={4}>
+                  <Typography.Title style={{ marginLeft: "5px" }}>
+                    B
+                  </Typography.Title>
                 </Col>
               </Row>
               <Row>
                 <Col span={6} push={4}>
                   <h1> 1</h1>
                 </Col>
-                <Col span={4} push={4}>
+                <Col span={4} push={5}>
                   <div class="led-box">
-                    <div class={il1a === "1" ? "led-green" : "led-orange"}></div>
+                    <div
+                      class={
+                        il1a === "1"
+                          ? "led-green"
+                          : il1a === "0"
+                          ? "led-orange"
+                          : "led-off"
+                      }
+                    ></div>
                   </div>
                 </Col>
                 <Col span={4} push={8}>
                   <div class="led-box">
-                    <div class={il1b === "1" ? "led-green" : "led-orange"}></div>
+                    <div
+                      class={
+                        il1b === "1"
+                          ? "led-green"
+                          : il1b === "0"
+                          ? "led-orange"
+                          : "led-off"
+                      }
+                    ></div>
                   </div>
                 </Col>
               </Row>
@@ -129,14 +139,30 @@ function ICS({ myData }) {
                 <Col span={6} push={4}>
                   <h1> 2</h1>
                 </Col>
-                <Col span={4} push={4}>
+                <Col span={4} push={5}>
                   <div class="led-box">
-                    <div class={il2a === "1" ? "led-green" : "led-orange"}></div>
+                    <div
+                      class={
+                        il2a === "1"
+                          ? "led-green"
+                          : il2a === "0"
+                          ? "led-orange"
+                          : "led-off"
+                      }
+                    ></div>
                   </div>
                 </Col>
                 <Col span={4} push={8}>
                   <div class="led-box">
-                    <div class={il2b === "1" ? "led-green" : "led-orange"}></div>
+                    <div
+                      class={
+                        il2b === "1"
+                          ? "led-green"
+                          : il2b === "0"
+                          ? "led-orange"
+                          : "led-off"
+                      }
+                    ></div>
                   </div>
                 </Col>
               </Row>
@@ -144,14 +170,30 @@ function ICS({ myData }) {
                 <Col span={6} push={4}>
                   <h1> 3</h1>
                 </Col>
-                <Col span={4} push={4}>
+                <Col span={4} push={5}>
                   <div class="led-box">
-                    <div class={il3a === "1" ? "led-green" : "led-orange"}></div>
+                    <div
+                      class={
+                        il3a === "1"
+                          ? "led-green"
+                          : il3a === "0"
+                          ? "led-orange"
+                          : "led-off"
+                      }
+                    ></div>
                   </div>
                 </Col>
                 <Col span={4} push={8}>
                   <div class="led-box">
-                    <div class={il3b === "1" ? "led-green" : "led-orange"}></div>
+                    <div
+                      class={
+                        il3b === "1"
+                          ? "led-green"
+                          : il3b === "0"
+                          ? "led-orange"
+                          : "led-off"
+                      }
+                    ></div>
                   </div>
                 </Col>
               </Row>
@@ -159,14 +201,27 @@ function ICS({ myData }) {
                 <Col span={6} push={4}>
                   <h1> 4</h1>
                 </Col>
-                <Col span={4} push={4}>
+                <Col span={4} push={5}>
                   <div class="led-box">
-                    <div class={il4a === "1" ? "led-green" : "led-orange"}></div>
+                    <div
+                      class={
+                        il4a === "1"
+                          ? "led-green"
+                          : il4a === "0"
+                          ? "led-orange"
+                          : "led-off"
+                      }
+                    ></div>
                   </div>
                 </Col>
                 <Col span={4} push={8}>
                   <div class="led-box">
-                    <div class={il4b === "1" ? "led-green" : "led-orange"}></div>
+                    <div
+                      class={ il4b === "1" ? "led-green": il4b === "0"
+                          ? "led-orange"
+                          : "led-off"
+                      }
+                    ></div>
                   </div>
                 </Col>
               </Row>
@@ -176,14 +231,14 @@ function ICS({ myData }) {
                     <h3>EXPANSION</h3>
                   </Typography.Title>
                 </Col>
-                <Col span={4} push={3}>
+                <Col span={4} push={4}>
                   <div class="led-box">
-                    <div class={expnA === "1" ? "led-green" : "led-orange"}></div>
+                    <div class={expnA === "1" ? "led-green" : "led-off"}></div>
                   </div>
                 </Col>
                 <Col span={4} push={7}>
                   <div class="led-box">
-                    <div class={expnB === "1" ? "led-green" : "led-orange"}></div>
+                    <div class={expnB === "1" ? "led-green" : "led-off"}></div>
                   </div>
                 </Col>
               </Row>
@@ -194,7 +249,7 @@ function ICS({ myData }) {
                     <h3>CURTAIN OPEN</h3>
                   </Typography.Title>
                 </Col>
-                <Col span={4} push={3}>
+                <Col span={4} push={4}>
                   <div class="led-box">
                     <div class={s2Open === "1" ? "led-green" : "led-off"}></div>
                   </div>
@@ -219,7 +274,7 @@ function ICS({ myData }) {
                       alignItems: "center",
                     }}
                   >
-                    {s3Open === "1" ? "NORMAL" : "ALIGNMENT"} MODE
+                    {s3Open === "0" ? "NORMAL" : "ALIGNMENT"} MODE
                   </h2>
                 </div>
               </Row>
@@ -242,13 +297,17 @@ function ICS({ myData }) {
               <Row>
                 <Col span={8} push={1}></Col>
                 <Col span={3} push={5}>
-                  <Typography.Title style={{marginLeft:'4px'}}>A</Typography.Title>
+                  <Typography.Title style={{ marginLeft: "4px" }}>
+                    A
+                  </Typography.Title>
                 </Col>
                 <Col span={5} push={7}>
-                  <Typography.Title style={{marginLeft:'5px'}}>B</Typography.Title>
+                  <Typography.Title style={{ marginLeft: "5px" }}>
+                    B
+                  </Typography.Title>
                 </Col>
               </Row>
-              <Row>
+              <Row style={{ marginBottom: "-10px" }}>
                 <Col span={8} push={1}>
                   <Typography.Title>
                     <h3>EMERGENCY STOP</h3>
@@ -265,9 +324,9 @@ function ICS({ myData }) {
                   </div>
                 </Col>
               </Row>
-              <Row style={{ marginBottom: "25px" }}>
+              <Row style={{ marginBottom: "10px" }}>
                 <Col span={8} push={1}>
-                  <Typography>
+                  <Typography style={{ marginTop: "10px" }}>
                     <h3>SAFETY OK</h3>
                   </Typography>
                 </Col>
@@ -316,7 +375,7 @@ function ICS({ myData }) {
               </Row>
               <Row>
                 <Col span={10} push={1}>
-                  <Typography>
+                  <Typography style={{ marginTop: "12px" }}>
                     <h3>LASER ARMED</h3>
                   </Typography>
                 </Col>
@@ -327,10 +386,15 @@ function ICS({ myData }) {
                     ></div>
                   </div>
                 </Col>
-                <Col span={4} push={6}></Col>
-                <Divider />
-                <img src={require("./images/ce.png")} width={50} height={50} />
               </Row>
+              <Divider />
+              <div id= "bot">
+              <Row alignItems={"flex-end"} justify={"end"} style={{alignItems:'flex-end'}}>
+                <Space>
+                  <img src={require("./images/ce.png")} width={50} height={30} />
+                  <img src={require("./images/volt.png")} width={50} height={30} />
+                </Space>
+              </Row></div>
             </Card>
           </Col>
         </Row>
