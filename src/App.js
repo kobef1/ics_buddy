@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav_bar from './Components/navbar';
 import ICS from './Pages/ics_buddy';
-import { Form, Button, Input, Modal, Select, Divider, message, Row, Col, Card, Typography } from "antd";
+import { Form, Button, Input, Modal, Select, Divider, message, Row, Col, Card, Typography, Spin, Alert, Space } from "antd";
 import { Content, Header } from 'antd/es/layout/layout';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -11,31 +11,48 @@ import axios from 'axios';
 function App() {
   const [myData, setMyData] = useState({})
   const [fetching, setFetching] = useState(false)
+  const [disconnectedStatus, setDisconnectedStatus] = useState(false)
+  const [myTimeout, setMyTimeout] = useState(250)
   useEffect(() => {
-    const fetchData = async () => {
-      if (fetching) {
-        return
-      }
-      try {
-        setFetching(true)
-        axios({ method: 'get', url: 'http://localhost:8000/fetch' }).then((response) => {
-          setMyData(response.data)
-          console.log(response.data)
-        })
-      } catch (error) {
-        console.error(`Error fetching data: `, error)
-      } finally {
-        setFetching(false)
-      }
+    const myPromise = () => {
+      return new Promise((resolve, reject) => {
+        if (!fetching) {
+          // Not fetching.
+          axios.get('http://localhost:8000/fetch')
+            .then((response) => {
+              resolve(response.data)
+            })
+            .catch((err) => reject(err.response.data.message))
+            .finally(() => setFetching(false))
+        } else {
+          reject('Another fetch is on-going!')
+        }
+      })
     }
 
     const intervalId = setInterval(() => {
-      fetchData()
-    }, 200)
+      if (!fetching) {
+        console.log(`Am I fetching? :`, fetching)
+        myPromise()
+          .then((response) => {
+            setMyData(response)
+            setDisconnectedStatus(false)
+            console.log(response)
+          })
+          .catch(err => {
+            setDisconnectedStatus(true)
+            console.log(err)
+          })
+      }
+    }, myTimeout)
 
-    return () => clearInterval(intervalId)
+    return () => {
+      clearInterval(intervalId)
+      setFetching(false)
+    }
 
-  }, [myData])
+  }, [])
+
   return (
     <>
       <div>
@@ -43,7 +60,18 @@ function App() {
       </div>
 
       <Content style={{ marginTop: "100px" }}>
-        <ICS myData ={myData} />
+        <Spin spinning={disconnectedStatus} tip={
+          <>
+            <Row justify={'center'}>
+              Loading..
+            </Row>
+            <Row justify={'center'}>
+              Please make sure you are connected to the ICS-Buddy switch or router!
+            </Row>
+          </>
+        }>
+          <ICS myData={myData} />
+        </Spin>
       </Content>
     </>
   );
