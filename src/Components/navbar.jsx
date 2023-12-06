@@ -90,7 +90,7 @@ function Nav_bar({ myUser }) {
                     style={{
                       color: "#3a4e84",
                       textDecoration: "none",
-                      fontSize: "1rem",
+                      fontSize: "1.5rem",
                     }}
                   >
                     {/*  <NavLink
@@ -98,7 +98,7 @@ function Nav_bar({ myUser }) {
                       style={{
                         color: "black",
                         textDecoration: "none",
-                        fontSize: "1rem",
+                        fontSize: "1.5rem",
                       }}
                     >
                       <BugOutlined /> Report a bug
@@ -112,7 +112,7 @@ function Nav_bar({ myUser }) {
                     style={{
                       color: "#3a4e84",
                       textDecoration: "none",
-                      fontSize: "1rem",
+                      fontSize: "1.5rem",
                     }}
                   >
                     {/* <NavLink
@@ -120,73 +120,7 @@ function Nav_bar({ myUser }) {
                       style={{
                         color: "black",
                         textDecoration: "none",
-                        fontSize: "1rem",
-                      }}
-                    >
-                      <AimOutlined /> Fiber Optic{" "}
-                    </NavLink> */}
-                    SLP
-                  </div>
-                </Nav.Link>
-                <Nav.Link href="#">
-                  <div
-                    class="hover-underline-animation "
-                    style={{
-                      color: "#3a4e84",
-                      textDecoration: "none",
-                      fontSize: "1rem",
-                    }}
-                  >
-                    {/* <NavLink
-                      to="#"
-                      style={{
-                        color: "black",
-                        textDecoration: "none",
-                        fontSize: "1rem",
-                      }}
-                    >
-                      <SelectOutlined /> Diffuse Reflection{" "}
-                    </NavLink> */}
-                    LASER CONTROLLED AREA
-                  </div>
-                </Nav.Link>
-                <Nav.Link href="#">
-                  <div
-                    class="hover-underline-animation "
-                    style={{
-                      color: "#3a4e84",
-                      textDecoration: "none",
-                      fontSize: "1rem",
-                    }}
-                  >
-                    {/* <NavLink
-                      to="#"
-                      style={{
-                        color: "black",
-                        textDecoration: "none",
-                        fontSize: "1rem",
-                      }}
-                    >
-                      <SearchOutlined /> Lookup Table{" "}
-                    </NavLink> */}
-                    SHUTTER CONTROL
-                  </div>
-                </Nav.Link>
-                <Nav.Link href="#">
-                  <div
-                    class="hover-underline-animation "
-                    style={{
-                      color: "#3a4e84",
-                      textDecoration: "none",
-                      fontSize: "1rem",
-                    }}
-                  >
-                    {/* <NavLink
-                      to="#"
-                      style={{
-                        color: "black",
-                        textDecoration: "none",
-                        fontSize: "1rem",
+                        fontSize: "1.5rem",
                       }}
                     >
                       <SearchOutlined /> Lookup Table{" "}
@@ -200,7 +134,7 @@ function Nav_bar({ myUser }) {
                     style={{
                       color: "#3a4e84",
                       textDecoration: "none",
-                      fontSize: "1rem",
+                      fontSize: "1.5rem",
                     }}
                   >
                     {/* <NavLink
@@ -208,7 +142,7 @@ function Nav_bar({ myUser }) {
                       style={{
                         color: "black",
                         textDecoration: "none",
-                        fontSize: "1rem",
+                        fontSize: "1.5rem",
                       }}
                     >
                       <SearchOutlined /> Lookup Table{" "}
@@ -222,7 +156,7 @@ function Nav_bar({ myUser }) {
                     style={{
                       color: "#3a4e84",
                       textDecoration: "none",
-                      fontSize: "1rem",
+                      fontSize: "1.5rem",
                     }}
                   >
                     {/* <NavLink
@@ -230,7 +164,7 @@ function Nav_bar({ myUser }) {
                       style={{
                         color: "black",
                         textDecoration: "none",
-                        fontSize: "1rem",
+                        fontSize: "1.5rem",
                       }}
                     >
                       <SearchOutlined /> Lookup Table{" "}
