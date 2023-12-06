@@ -9,6 +9,7 @@ function ICS({ myData }) {
   const {il1a, il1b , il2a, il2b, il3a, il3b, il4a, il4b, expnA, expnB, esA, esB, safetyA, safetyB,
     sysOverride, systemArmed, mismatch, keySwitchA, enableLED, s1Open, s2Open, s3Open } = myData
   console.log(`AAAAAAAAAAAAAAAAA IL1A =`, il1a, typeof (il1a));
+
   
   return (
     <>
