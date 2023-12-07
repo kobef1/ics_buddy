@@ -4,8 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './nav_bar.css';
 import logo from './Logo.png';
 import React, { useState } from 'react';
-// import { NavLink } from 'react-router-dom';
-import { message } from 'antd';
+import { NavLink } from 'react-router-dom';
+import {message } from 'antd';
 
 
 const user = ["Kobe", "Jayson", "Kat", "Paul", "Eugene", "Herb", "Jerico"];
@@ -47,66 +47,58 @@ function Nav_bar({ myUser, handleOpenLog }) {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-
-  return (
-    <>
-      {contextHolder}
-      {myUser !== null ? (
-        <Navbar
-          collapseOnSelect
-          expand="lg"
-          className="bg-body"
-          class="row "
-          id="nav"
-          fixed="top"
-        >
-          {" "}
-          <Navbar.Brand>
-            <img src={logo} width={150} height={50} />
-          </Navbar.Brand>
-          <div
-            class="vr d-none d-lg-block "
-            style={{ marginRight: "8px" }}
-          ></div>
-          <Navbar.Toggle
-            aria-controls="responsive-navbar-nav"
-            style={{ margin: "0px 10px 0px 0px" }}
-          />
-          <Navbar.Collapse collapseOnSelect id="responsive-navbar-nav">
-            {/* <Offcanvas.Header closeButton>
-                  <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}> */}
-            {/* <img
-                      src={logo}
-                      width={150}
-                      height={50}
-                      style={{ marginTop: "10px" }}
-                    /> */}
-            {/* </Offcanvas.Title>
-                </Offcanvas.Header> */}
-            <Nav>
-              <Nav.Link href="#">
-                <div
-                  class="hover-underline-animation"
-                  style={{
-                    color: "#3a4e84",
-                    textDecoration: "none",
-                    fontSize: "1.5rem",
-                  }}
-                >
-                  {/*  <NavLink
+    return (
+      <>
+        {contextHolder}
+        {myUser !== null ? (
+          <Navbar
+            collapseOnSelect
+            expand="lg"
+            className="bg-body"
+            class="row "
+            id="nav"
+            fixed="top"
+          >
+            {" "}
+            <Navbar.Brand>
+              <img src={logo} width={150} height={50} />
+            </Navbar.Brand>
+            <div
+              class="vr d-none d-lg-block "
+              style={{ marginRight: "8px" }}
+            ></div>
+            <Navbar.Toggle
+              aria-controls="responsive-navbar-nav"
+              style={{ margin: "0px 10px 0px 0px" }}
+            />
+            <Navbar.Collapse collapseOnSelect id="responsive-navbar-nav">
+              <Nav>
+                <Nav.Link href="#">
+                  <div
+                    class="hover-underline-animation"
+                    style={{
+                      color: "#3a4e84",
+                      textDecoration: "none",
+                      fontSize: "1.5rem",
+                    }}
+                  >
+                    <NavLink
                       to="/"
-                      style={{
-                        color: "black",
-                        textDecoration: "none",
-                        fontSize: "1.5rem",
+                      style={({ isActive }) => {
+                        return isActive
+                          ? { color: "black",borderBottom: "2px solid black", textDecoration:"none" }
+                          : {
+                              color: "black",
+                              textDecoration: "none",
+                            };
                       }}
                     >
-                      <BugOutlined /> Report a bug
-                    </NavLink>*/}
-                  ICS
-                </div>
-              </Nav.Link>
-              <Nav.Link href="#" onClick={handleOpenLog}>
+                      {" "}
+                      ICS
+                    </NavLink>
+                  </div>
+                </Nav.Link>
+                <Nav.Link href="#" onClick={handleOpenLog}>
                 <div
                   class="hover-underline-animation "
                   style={{
@@ -128,55 +120,11 @@ function Nav_bar({ myUser, handleOpenLog }) {
                   LOGS
                 </div>
               </Nav.Link>
-              <Nav.Link href="#">
-                <div
-                  class="hover-underline-animation "
-                  style={{
-                    color: "#3a4e84",
-                    textDecoration: "none",
-                    fontSize: "1.5rem",
-                  }}
-                >
-                  {/* <NavLink
-                      to="#"
-                      style={{
-                        color: "black",
-                        textDecoration: "none",
-                        fontSize: "1.5rem",
-                      }}
-                    >
-                      <SearchOutlined /> Lookup Table{" "}
-                    </NavLink> */}
-                  SETTINGS
-                </div>
-              </Nav.Link>
-              <Nav.Link href="#">
-                <div
-                  class="hover-underline-animation "
-                  style={{
-                    color: "#3a4e84",
-                    textDecoration: "none",
-                    fontSize: "1.5rem",
-                  }}
-                >
-                  {/* <NavLink
-                      to="#"
-                      style={{
-                        color: "black",
-                        textDecoration: "none",
-                        fontSize: "1.5rem",
-                      }}
-                    >
-                      <SearchOutlined /> Lookup Table{" "}
-                    </NavLink> */}
-                  ABOUT
-                </div>
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
-      ) : null}
-    </>
-  );
+              </Nav>
+            </Navbar.Collapse>
+          </Navbar>
+        ) : null}
+      </>
+    );
 }
 export default Nav_bar;

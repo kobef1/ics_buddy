@@ -38,11 +38,11 @@ h1, h2, h3{
     background-color: #ff6700;
     border-radius: 50%;
     box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #682402 0 -1px 9px, #f35506 0 2px 12px;
-    -webkit-animation: blinkOrange 0.8s infinite;
-    -moz-animation: blinkOrange 0.8s infinite;
-    -ms-animation: blinkOrange 0.8s infinite;
-    -o-animation: blinkOrange 0.8s infinite;
-    animation: blinkOrange 0.8s infinite;
+    -webkit-animation: blinkOrange 0.5s 3;
+    -moz-animation: blinkOrange 0.5s 3;
+    -ms-animation: blinkOrange 0.5s 3;
+    -o-animation: blinkOrange 0.5s 3;
+    animation: blinkOrange 0.5s 3;
 }
 
 @-webkit-keyframes blinkOrange {

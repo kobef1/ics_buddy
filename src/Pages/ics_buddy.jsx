@@ -1,14 +1,36 @@
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import './ics.css';
-import { Divider, Row, Col, Card, Typography, Space} from "antd";
+import { Divider, Row, Col, Card, Typography, Space } from "antd";
+import axios from "axios";
 
 // import  from './switch-on.png'
 
 function ICS({ myData }) {
   const {il1a, il1b , il2a, il2b, il3a, il3b, il4a, il4b, expnA, expnB, esA, esB, safetyA, safetyB,
-    sysOverride, systemArmed, mismatch, keySwitchA, enableLED, s1Open, s2Open, s3Open } = myData
+    sysOverride, systemArmed, mismatch, keySwitchA, enableLED, s1Open, s2Open, s3Open} = myData
   console.log(`AAAAAAAAAAAAAAAAA IL1A =`, il1a, typeof (il1a));
+
+  const arm = () => {
+    axios
+       .get("http://localhost:8000/arm")
+       .then((response) => {
+         console.log(response);
+       })
+       .catch((err) => {
+         console.log(err);
+       });
+  };
+  const disarm = () => {
+    axios
+      .get("http://localhost:8000/disarm")
+      .then((response) => {
+      console.log(response);
+    })
+      .catch((err) => {
+      console.log(err);
+      });
+    };
 
   
   return (
@@ -39,15 +61,35 @@ function ICS({ myData }) {
                     }
                     width={80}
                     height={120}
+                    style={{ cursor: "not-allowed" }}
                   />
                 </div>
               </Row>
               <Divider>
-                <h1>ARM LASER</h1>
+                <h1>{systemArmed === "1" ? "ARM LASER" : "DISARM LASER"}</h1>
               </Divider>
               <Row align={"middle"} justify={"center"}>
-                <img
-                  class={enableLED === "0" ? "click" : null}
+                {enableLED === "0" ? (
+                  <img
+                    class="click"
+                    onClick={arm}
+                    src={require("./images/pushbutton-on2.png")}
+                    width={100}
+                    height={100}
+                    style={{ marginLeft: "-8px" }}
+                  />
+                ) : (
+                  <img
+                    class="click"
+                    onClick={disarm}
+                    src={require("./images/pushbutton-off.png")}
+                    width={100}
+                    height={100}
+                    style={{ marginLeft: "-8px" }}
+                  />
+                )}
+                {/* <img
+                  onClick={arm}
                   src={
                     enableLED === "0"
                       ? require("./images/pushbutton-on2.png")
@@ -56,21 +98,22 @@ function ICS({ myData }) {
                   width={100}
                   height={100}
                   style={{ marginLeft: "-8px" }}
-                />
+                /> */}
               </Row>
               <Divider>
                 <h1>KEY SWITCH</h1>
               </Divider>
               <Row align={"middle"} justify={"center"}>
-                <img
-                  src={
-                    keySwitchA === "1"
-                      ? require("./images/keyswitch-on.png")
-                      : require("./images/keyswitch-off.png")
-                  }
-                  width={330}
-                  height={230}
-                />
+                  <img
+                    src={
+                      keySwitchA === "1"
+                        ? require("./images/keyswitch-on.png")
+                        : require("./images/keyswitch-off.png")
+                    }
+                    width={310}
+                    height={210}
+                    style={{cursor: "not-allowed"}}
+                  />
               </Row>
             </Card>
           </Col>
@@ -218,7 +261,10 @@ function ICS({ myData }) {
                 <Col span={4} push={8}>
                   <div class="led-box">
                     <div
-                      class={ il4b === "1" ? "led-green": il4b === "0"
+                      class={
+                        il4b === "1"
+                          ? "led-green"
+                          : il4b === "0"
                           ? "led-orange"
                           : "led-off"
                       }
@@ -252,7 +298,9 @@ function ICS({ myData }) {
                 </Col>
                 <Col span={4} push={4}>
                   <div class="led-box">
-                    <div class={s2Open === "1" ? "led-green" : "led-off"}></div>
+                    <div
+                      class={s2Open === "0" ? "led-green" : s2Open === "1" ? "led-orange" : "led-off"}
+                    ></div>
                   </div>
                 </Col>
               </Row>
@@ -266,6 +314,7 @@ function ICS({ myData }) {
                     height: "80px",
                     display: "grid",
                     marginTop: "-10px",
+                    backgroundColor: "white",
                   }}
                 >
                   <h2
@@ -354,7 +403,7 @@ function ICS({ myData }) {
                 </Col>
                 <Col span={4} push={5}>
                   <div class="led-box">
-                    <div class={s1Open === "1" ? "led-green" : "led-off"}></div>
+                    <div class={s1Open === "1" ? "led-orange" : "led-off"}></div>
                   </div>
                 </Col>
                 <Col span={4} push={6}></Col>
@@ -389,13 +438,6 @@ function ICS({ myData }) {
                 </Col>
               </Row>
               <Divider />
-              <div id= "bot">
-              <Row alignItems={"flex-end"} justify={"end"} style={{alignItems:'flex-end'}}>
-                <Space>
-                  <img src={require("./images/ce.png")} width={50} height={30} />
-                  <img src={require("./images/volt.png")} width={50} height={30} />
-                </Space>
-              </Row></div>
             </Card>
           </Col>
         </Row>
