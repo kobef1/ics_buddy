@@ -7,6 +7,7 @@ import { Form, Button, Input, Modal, Select, Divider, message, Row, Col, Card, T
 import { Content, Header } from 'antd/es/layout/layout';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { NavLink, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 function App() {
   const [myData, setMyData] = useState({})
@@ -55,6 +56,7 @@ function App() {
 
   return (
     <>
+      <Router>
       <div>
         <Nav_bar />
       </div>
@@ -70,9 +72,12 @@ function App() {
             </Row>
           </>
         }>
-          <ICS myData={myData} />
+        <Routes>
+              <Route path='/' element={<ICS myData={myData} />} />
+        </Routes>
         </Spin>
-      </Content>
+        </Content>
+      </Router>
     </>
   );
 }

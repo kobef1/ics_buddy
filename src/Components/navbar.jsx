@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './nav_bar.css';
 import logo from './Logo.png';
 import React, { useState } from 'react';
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import {message } from 'antd';
 
 
@@ -73,16 +73,6 @@ function Nav_bar({ myUser }) {
               style={{ margin: "0px 10px 0px 0px" }}
             />
             <Navbar.Collapse collapseOnSelect id="responsive-navbar-nav">
-              {/* <Offcanvas.Header closeButton>
-                  <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}> */}
-              {/* <img
-                      src={logo}
-                      width={150}
-                      height={50}
-                      style={{ marginTop: "10px" }}
-                    /> */}
-              {/* </Offcanvas.Title>
-                </Offcanvas.Header> */}
               <Nav>
                 <Nav.Link href="#">
                   <div
@@ -93,17 +83,20 @@ function Nav_bar({ myUser }) {
                       fontSize: "1.5rem",
                     }}
                   >
-                    {/*  <NavLink
+                    <NavLink
                       to="/"
-                      style={{
-                        color: "black",
-                        textDecoration: "none",
-                        fontSize: "1.5rem",
+                      style={({ isActive }) => {
+                        return isActive
+                          ? { color: "black",borderBottom: "2px solid black", textDecoration:"none" }
+                          : {
+                              color: "black",
+                              textDecoration: "none",
+                            };
                       }}
                     >
-                      <BugOutlined /> Report a bug
-                    </NavLink>*/}
-                    ICS
+                      {" "}
+                      ICS
+                    </NavLink>
                   </div>
                 </Nav.Link>
                 <Nav.Link href="#">
@@ -111,65 +104,9 @@ function Nav_bar({ myUser }) {
                     class="hover-underline-animation "
                     style={{
                       color: "#3a4e84",
-                      textDecoration: "none",
                       fontSize: "1.5rem",
                     }}
                   >
-                    {/* <NavLink
-                      to="#"
-                      style={{
-                        color: "black",
-                        textDecoration: "none",
-                        fontSize: "1.5rem",
-                      }}
-                    >
-                      <SearchOutlined /> Lookup Table{" "}
-                    </NavLink> */}
-                    LOGS
-                  </div>
-                </Nav.Link>
-                <Nav.Link href="#">
-                  <div
-                    class="hover-underline-animation "
-                    style={{
-                      color: "#3a4e84",
-                      textDecoration: "none",
-                      fontSize: "1.5rem",
-                    }}
-                  >
-                    {/* <NavLink
-                      to="#"
-                      style={{
-                        color: "black",
-                        textDecoration: "none",
-                        fontSize: "1.5rem",
-                      }}
-                    >
-                      <SearchOutlined /> Lookup Table{" "}
-                    </NavLink> */}
-                    SETTINGS
-                  </div>
-                </Nav.Link>
-                <Nav.Link href="#">
-                  <div
-                    class="hover-underline-animation "
-                    style={{
-                      color: "#3a4e84",
-                      textDecoration: "none",
-                      fontSize: "1.5rem",
-                    }}
-                  >
-                    {/* <NavLink
-                      to="#"
-                      style={{
-                        color: "black",
-                        textDecoration: "none",
-                        fontSize: "1.5rem",
-                      }}
-                    >
-                      <SearchOutlined /> Lookup Table{" "}
-                    </NavLink> */}
-                    ABOUT
                   </div>
                 </Nav.Link>
               </Nav>

@@ -8,7 +8,7 @@ import axios from "axios";
 
 function ICS({ myData }) {
   const {il1a, il1b , il2a, il2b, il3a, il3b, il4a, il4b, expnA, expnB, esA, esB, safetyA, safetyB,
-    sysOverride, systemArmed, mismatch, keySwitchA, enableLED, s1Open, s2Open, s3Open } = myData
+    sysOverride, systemArmed, mismatch, keySwitchA, enableLED, s1Open, s2Open, s3Open} = myData
   console.log(`AAAAAAAAAAAAAAAAA IL1A =`, il1a, typeof (il1a));
 
   const arm = () => {
@@ -61,6 +61,7 @@ function ICS({ myData }) {
                     }
                     width={80}
                     height={120}
+                    style={{ cursor: "not-allowed" }}
                   />
                 </div>
               </Row>
@@ -103,16 +104,16 @@ function ICS({ myData }) {
                 <h1>KEY SWITCH</h1>
               </Divider>
               <Row align={"middle"} justify={"center"}>
-                <img
-                  src={
-                    keySwitchA === "1"
-                      ? require("./images/keyswitch-on.png")
-                      : require("./images/keyswitch-off.png")
-                  }
-                  width={330}
-                  height={230}
-                  style={{ opacity: "60%", cursor: "not-allowed" }}
-                />
+                  <img
+                    src={
+                      keySwitchA === "1"
+                        ? require("./images/keyswitch-on.png")
+                        : require("./images/keyswitch-off.png")
+                    }
+                    width={310}
+                    height={210}
+                    style={{cursor: "not-allowed"}}
+                  />
               </Row>
             </Card>
           </Col>
@@ -313,6 +314,7 @@ function ICS({ myData }) {
                     height: "80px",
                     display: "grid",
                     marginTop: "-10px",
+                    backgroundColor: "white",
                   }}
                 >
                   <h2
@@ -401,7 +403,7 @@ function ICS({ myData }) {
                 </Col>
                 <Col span={4} push={5}>
                   <div class="led-box">
-                    <div class={s1Open === "1" ? "led-green" : "led-off"}></div>
+                    <div class={s1Open === "1" ? "led-orange" : "led-off"}></div>
                   </div>
                 </Col>
                 <Col span={4} push={6}></Col>
