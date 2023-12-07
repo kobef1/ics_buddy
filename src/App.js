@@ -7,12 +7,24 @@ import { Form, Button, Input, Modal, Select, Divider, message, Row, Col, Card, T
 import { Content, Header } from 'antd/es/layout/layout';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import ICSLogs from './Components/ICSLogs';
 
 function App() {
   const [myData, setMyData] = useState({})
   const [fetching, setFetching] = useState(false)
   const [disconnectedStatus, setDisconnectedStatus] = useState(false)
-  const [myTimeout, setMyTimeout] = useState(250)
+  const [myTimeout, setMyTimeout] = useState(500)
+
+  const [logsVisibility, setLogsVisibility] = useState(false)
+
+  const handleOpenLog = () => {
+    setLogsVisibility(true)
+  }
+
+  const handleCloseLog = () => {
+    setLogsVisibility(false)
+  }
+
   useEffect(() => {
     const myPromise = () => {
       return new Promise((resolve, reject) => {
@@ -56,8 +68,17 @@ function App() {
   return (
     <>
       <div>
-        <Nav_bar />
+        <Nav_bar handleOpenLog={handleOpenLog} />
       </div>
+
+      {/* <ICSLogs open={logsVisibility} /> */}
+      <Modal
+        title='Logs'
+        open={logsVisibility}
+        onCancel={handleCloseLog}
+        width={1500}>
+        <ICSLogs />
+      </Modal>
 
       <Content style={{ marginTop: "100px" }}>
         <Spin spinning={disconnectedStatus} tip={
