@@ -69,34 +69,34 @@ function App() {
   return (
     <>
       <Router>
-      <div>
-        <Nav_bar handleOpenLog={handleOpenLog} />
-      </div>
+        <div>
+          <Nav_bar handleOpenLog={handleOpenLog} />
+        </div>
 
-      {/* <ICSLogs open={logsVisibility} /> */}
-      <Modal
-        title='Logs'
-        open={logsVisibility}
-        onCancel={handleCloseLog}
-        width={1500}>
-        <ICSLogs />
-      </Modal>
+        {/* <ICSLogs open={logsVisibility} /> */}
+        <Modal
+          title='Logs'
+          open={logsVisibility}
+          onCancel={handleCloseLog}
+          width={1500}>
+          <ICSLogs />
+        </Modal>
 
-      <Content style={{ marginTop: "100px" }}>
-        <Spin spinning={disconnectedStatus} tip={
-          <>
-            <Row justify={'center'}>
-              Loading..
-            </Row>
-            <Row justify={'center'}>
-              Please make sure you are connected to the ICS-Buddy switch or router!
-            </Row>
-          </>
-        }>
-        <Routes>
+        <Content style={{ marginTop: "100px" }}>
+          <Spin spinning={disconnectedStatus} tip={
+            <>
+              <Row justify={'center'}>
+                Loading..
+              </Row>
+              <Row justify={'center'}>
+                Please make sure you are connected to the ICS-Buddy switch or router!
+              </Row>
+            </>
+          }>
+            <Routes>
               <Route path='/' element={<ICS myData={myData} />} />
-        </Routes>
-        </Spin>
+            </Routes>
+          </Spin>
         </Content>
       </Router>
     </>
