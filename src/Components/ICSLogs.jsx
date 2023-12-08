@@ -10,12 +10,13 @@ const ICSLogs = (open) => {
                 title: title,
                 dataIndex: dataIndex,
                 key: dataIndex,
-
             }
         )
     }
 
     const columns = [
+        createColumnObject('ID', 'event_id'),
+        createColumnObject('Signal', 'signal'),
         createColumnObject('Event', 'event'),
         createColumnObject('Date', 'date'),
         createColumnObject('Time', 'time')
@@ -26,12 +27,14 @@ const ICSLogs = (open) => {
             .then((response) => {
                 // setMyLogs(response.data)
                 let events = response.data
-                let dataSource = events.map(({ event, date, time }, i) => (
+                let dataSource = events.map(({ event, date, time, event_id, signal }, i) => (
                     {
                         key: i,
                         event: event,
                         date: date,
-                        time: time
+                        time: time,
+                        event_id: event_id,
+                        signal: signal
                     }
                 ))
                 setMyLogs(dataSource)
