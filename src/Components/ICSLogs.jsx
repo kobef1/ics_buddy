@@ -5,14 +5,36 @@ import { Row, Spin, Table } from 'antd'
 const ICSLogs = (open) => {
     const [myLogs, setMyLogs] = useState(null)
     const createColumnObject = (title, dataIndex) => {
-        return (
-            {
-                title: title,
-                dataIndex: dataIndex,
-                key: dataIndex,
+        if (title === 'Date'){
+            return (
+                {
+                    title: title,
+                    dataIndex: dataIndex,
+                    key: dataIndex,
+                    sorter: (a, b) => new Date(a.date) - new Date(b.date)
+                }
+            )
+        }
+        else if (title === 'Time'){
+            return (
+                {
+                    title: title,
+                    dataIndex: dataIndex,
+                    key: dataIndex,
+                    sorter: (a, b) => a.time.localeCompare(b.time)
+                }
+            )
+        }
+        else {
+            return (
+                {
+                    title: title,
+                    dataIndex: dataIndex,
+                    key: dataIndex,
 
-            }
-        )
+                }
+            )
+        }
     }
 
     const columns = [
