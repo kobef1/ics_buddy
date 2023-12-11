@@ -5,7 +5,7 @@ import { Row, Spin, Table } from 'antd'
 const ICSLogs = (open) => {
     const [myLogs, setMyLogs] = useState(null)
     const createColumnObject = (title, dataIndex) => {
-        if (title === 'Date'){
+        if (title === 'Date') {
             return (
                 {
                     title: title,
@@ -15,7 +15,17 @@ const ICSLogs = (open) => {
                 }
             )
         }
-        else if (title === 'Time'){
+        else if (title === 'Signal') {
+            return (
+                {
+                    title: title,
+                    dataIndex: dataIndex,
+                    key: dataIndex,
+                    sorter: (a, b) => a.signal.localeCompare(b.signal)
+                }
+            )
+        }
+        else if (title === 'Time') {
             return (
                 {
                     title: title,
