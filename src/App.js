@@ -85,26 +85,6 @@ function App() {
 
     }, [])
 
-    //retrieve logs from db
-    useEffect(() => {
-        axios.get('http://localhost:8000/db')
-            .then((response) => {
-                // setMyLogs(response.data)
-                let events = response.data
-                let dataSource = events.map(({event, date, time}, i) => (
-                    {
-                        key: i,
-                        event: event,
-                        date: date,
-                        time: time
-                    }
-                ))
-                setMyLogs(dataSource)
-                console.log(JSON.stringify(dataSource))
-            })
-    })
-    //  setMyLogs(<RetrieveLogsFromDatabase/>)
-
     return (
         <>
             <Router>
@@ -126,11 +106,7 @@ function App() {
                         //         }
                         //     </PDFDownloadLink>
                         // )}>Convert Log to PDF</Button>,
-                        <PDFDownloadLink document={<ConvertToPdf logs={myLogs}/>} fileName="testdoc.pdf">
-                            {({blob, url, loading, error}) =>
-                                loading ? 'Loading document...' : 'Download now!'
-                            }
-                        </PDFDownloadLink>,
+
 
                         <Button key="Close" onClick={handleCloseLog}>
                             Close Log

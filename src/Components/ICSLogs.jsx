@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Row, Spin, Table } from 'antd'
+import {PDFDownloadLink} from "@react-pdf/renderer";
+import {ConvertToPdf} from "./ConvertToPdf";
 
 const ICSLogs = (open) => {
     const [myLogs, setMyLogs] = useState(null)
@@ -70,6 +72,11 @@ const ICSLogs = (open) => {
             <Row>
                 {/* <strong>Note: </strong> The logs listed below appeared in the database before you clicked the button. */}
                 <strong>Note: </strong> The logs are not updated in real time. The logs will be updated when you open this window again via the Logs button.
+                {myLogs === null ? null : ( <PDFDownloadLink document={<ConvertToPdf logs={myLogs}/>} fileName="testdoc.pdf">
+                    {({blob, url, loading, error}) =>
+                        loading ? 'Loading document...' : 'Download now!'
+                    }
+                </PDFDownloadLink>)}
             </Row>
             {/* {myLogs === null ? (null) : (
                 myLogs.map(({ event, time, date }) => `${event}`)
