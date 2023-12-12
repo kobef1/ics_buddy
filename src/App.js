@@ -26,7 +26,6 @@ import {NavLink, Route, BrowserRouter as Router, Routes} from 'react-router-dom'
 import ICSLogs from './Components/ICSLogs';
 import {ConvertToPdf} from "./Components/ConvertToPdf";
 import ReactPDF, {PDFDownloadLink} from "@react-pdf/renderer";
-import {RetrieveLogsFromDatabase} from "./Components/RetrieveLogsFromDatabase";
 
 function App() {
     const [myData, setMyData] = useState({})

@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 import axios from "axios";
-import {RetrieveLogsFromDatabase} from "./RetrieveLogsFromDatabase";
 import {forEach} from "react-bootstrap/ElementChildren";
 
 // Create styles
