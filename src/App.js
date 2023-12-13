@@ -4,37 +4,23 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav_bar from './Components/navbar';
 import ICS from './Pages/ics_buddy';
 import {
-    Form,
     Button,
-    Input,
     Modal,
-    Select,
-    Divider,
-    message,
     Row,
-    Col,
-    Card,
-    Typography,
     Spin,
-    Alert,
-    Space
 } from "antd";
 import {Content, Header} from 'antd/es/layout/layout';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 import {NavLink, Route, BrowserRouter as Router, Routes} from 'react-router-dom';
 import ICSLogs from './Components/ICSLogs';
-import {ConvertToPdf} from "./Components/ConvertToPdf";
-import ReactPDF, {PDFDownloadLink} from "@react-pdf/renderer";
 
 function App() {
     const [myData, setMyData] = useState({})
     const [fetching, setFetching] = useState(false)
     const [disconnectedStatus, setDisconnectedStatus] = useState(false)
     const [myTimeout, setMyTimeout] = useState(500)
-
     const [logsVisibility, setLogsVisibility] = useState(false)
-    const [myLogs, setMyLogs] = useState(null)
 
     const handleOpenLog = () => {
         setLogsVisibility(true)
@@ -43,7 +29,6 @@ function App() {
     const handleCloseLog = () => {
         setLogsVisibility(false)
     }
-
 
     useEffect(() => {
         const myPromise = () => {
@@ -94,20 +79,11 @@ function App() {
 
                 {/* <ICSLogs open={logsVisibility} /> */}
                 <Modal
-                    title='Logs'
+                    title='ICS Buddy Logs'
                     open={logsVisibility}
                     onCancel={handleCloseLog}
                     width={1500}
                     footer={[
-                        // <Button key='convert' onClick={() => (
-                        //     <PDFDownloadLink document={<ConvertToPdf />} fileName="somename.pdf">
-                        //         {({ blob, url, loading, error }) =>
-                        //             loading ? 'Loading document...' : 'Download now!'
-                        //         }
-                        //     </PDFDownloadLink>
-                        // )}>Convert Log to PDF</Button>,
-
-
                         <Button key="Close" onClick={handleCloseLog}>
                             Close Log
                         </Button>,

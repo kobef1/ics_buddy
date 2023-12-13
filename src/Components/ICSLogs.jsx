@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import axios from 'axios'
-import { Row, Spin, Table } from 'antd'
+import {Row, Space, Spin, Table} from 'antd'
 import {PDFDownloadLink} from "@react-pdf/renderer";
 import {ConvertToPdf} from "./ConvertToPdf";
+import moment from "moment/moment";
 
 const ICSLogs = (open) => {
     const [myLogs, setMyLogs] = useState(null)
+    const date = moment().format("MMM DD YYYY")
+
     const createColumnObject = (title, dataIndex) => {
-        if (title === 'Date'){
+        if (title === 'Date') {
             return (
                 {
                     title: title,
@@ -16,8 +19,7 @@ const ICSLogs = (open) => {
                     sorter: (a, b) => new Date(a.date) - new Date(b.date)
                 }
             )
-        }
-        else if (title === 'Time'){
+        } else if (title === 'Time') {
             return (
                 {
                     title: title,
@@ -26,8 +28,7 @@ const ICSLogs = (open) => {
                     sorter: (a, b) => a.time.localeCompare(b.time)
                 }
             )
-        }
-        else {
+        } else {
             return (
                 {
                     title: title,
@@ -52,7 +53,7 @@ const ICSLogs = (open) => {
             .then((response) => {
                 // setMyLogs(response.data)
                 let events = response.data
-                let dataSource = events.map(({ event, date, time, event_id, signal }, i) => (
+                let dataSource = events.map(({event, date, time, event_id, signal}, i) => (
                     {
                         key: i,
                         event: event,
@@ -70,22 +71,36 @@ const ICSLogs = (open) => {
     return (
         <div>
             <Row>
-                {/* <strong>Note: </strong> The logs listed below appeared in the database before you clicked the button. */}
-                <strong>Note: </strong> The logs are not updated in real time. The logs will be updated when you open this window again via the Logs button.
-                {myLogs === null ? null : ( <PDFDownloadLink document={<ConvertToPdf logs={myLogs}/>} fileName="testdoc.pdf">
-                    {({blob, url, loading, error}) =>
-                        loading ? 'Loading document...' : 'Download now!'
-                    }
-                </PDFDownloadLink>)}
+                <Space>
+                    <strong>Note: </strong> The data shown are the latest 100 recorded logs and are not updated in real time. The logs will be updated when you
+                    open this window again via the Logs button.
+                    {myLogs === null ? null : (
+                        <PDFDownloadLink document={<ConvertToPdf logs={myLogs}/>} fileName={`ICSBuddyLog_${date}.pdf`}>
+                            {({blob, url, loading, error}) =>
+                                loading ? 'Preparing the log for downloading...' : 'Download the log here.'
+                            }
+                        </PDFDownloadLink>
+                    )}
+                </Space>
+                <br/>
             </Row>
+
             {/* {myLogs === null ? (null) : (
                 myLogs.map(({ event, time, date }) => `${event}`)
             )} */}
 
             {myLogs === null ? (
-                <Spin spinning />
+                <Spin spinning/>
             ) : (
-                <Table columns={columns} dataSource={myLogs} />
+                <Table
+                    columns={columns}
+                    dataSource={myLogs}
+
+                    pagination={{
+                        position: ["bottomCenter"],
+                        pageSize: 10
+                    }}
+                />
             )}
         </div>
     )
